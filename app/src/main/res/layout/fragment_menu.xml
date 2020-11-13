@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="16dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_data"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_data"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_instructions" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_platform"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_platform"
+        app:layout_constraintStart_toStartOf="@+id/btn_data"
+        app:layout_constraintTop_toBottomOf="@id/btn_data" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_communication"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_communication"
+        app:layout_constraintStart_toStartOf="@+id/btn_platform"
+        app:layout_constraintTop_toBottomOf="@id/btn_platform" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_handling"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_handling"
+        app:layout_constraintStart_toStartOf="@+id/btn_communication"
+        app:layout_constraintTop_toBottomOf="@id/btn_communication" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_authentication"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btn_authentication"
+        app:layout_constraintStart_toStartOf="@+id/btn_handling"
+        app:layout_constraintTop_toBottomOf="@id/btn_handling" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

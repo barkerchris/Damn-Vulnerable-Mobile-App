@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Damn Vulnerable Mobile App</string>
+
+    <string name="btn_data">Insecure data storage</string>
+    <string name="btn_platform">Improper platform usage</string>
+    <string name="btn_communication">Insecure communication</string>
+    <string name="btn_handling">Insecure data handling</string>
+    <string name="btn_authentication">Poor authentication</string>
+
+    <string name="instructions">Click a button to go to the vulnerability page:</string>
+    <string name="txt_data_body">Insecure data storage is</string>
+    <string name="txt_email">Email</string>
+    <string name="txt_password">Password</string>
+    <string name="btn_login">Log in</string>
+</resources>

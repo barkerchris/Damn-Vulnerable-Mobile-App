@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.damnvulnerablemobileapp.MenuFragment"
+        android:label="MenuFragment" >
+        <action
+            android:id="@+id/action_menuFragment_to_dataFragment"
+            app:destination="@id/dataFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_authenticationFragment"
+            app:destination="@id/authenticationFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_communicationFragment"
+            app:destination="@id/communicationFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_handlingFragment"
+            app:destination="@id/handlingFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_platformFragment"
+            app:destination="@id/platformFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dataFragment"
+        android:name="com.example.damnvulnerablemobileapp.DataFragment"
+        android:label="DataFragment" />
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.example.damnvulnerablemobileapp.AuthenticationFragment"
+        android:label="fragment_authentication"
+        tools:layout="@layout/fragment_authentication" />
+    <fragment
+        android:id="@+id/communicationFragment"
+        android:name="com.example.damnvulnerablemobileapp.CommunicationFragment"
+        android:label="fragment_communication"
+        tools:layout="@layout/fragment_communication" />
+    <fragment
+        android:id="@+id/handlingFragment"
+        android:name="com.example.damnvulnerablemobileapp.HandlingFragment"
+        android:label="fragment_handling"
+        tools:layout="@layout/fragment_handling" />
+    <fragment
+        android:id="@+id/platformFragment"
+        android:name="com.example.damnvulnerablemobileapp.PlatformFragment"
+        android:label="fragment_platform"
+        tools:layout="@layout/fragment_platform" />
+</navigation>
