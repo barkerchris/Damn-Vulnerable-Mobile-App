@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "823422325260",
+    "firebase_url": "https://damn-vulnerable-mobile-app.firebaseio.com",
+    "project_id": "damn-vulnerable-mobile-app",
+    "storage_bucket": "damn-vulnerable-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823422325260:android:e60b1691a4e10a4d319429",
+        "android_client_info": {
+          "package_name": "com.example.damnvulnerablemobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823422325260-jp4jiqrm6j72vcl44sd4u6rvts29scfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY8u5IyEk1EaKRRru-raH8DgdJ-Gc6fpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823422325260-jp4jiqrm6j72vcl44sd4u6rvts29scfd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

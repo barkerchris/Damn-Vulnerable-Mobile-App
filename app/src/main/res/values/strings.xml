@@ -8,8 +8,12 @@
     <string name="btn_authentication">Poor authentication</string>
 
     <string name="instructions">Click a button to go to the vulnerability page:</string>
-    <string name="txt_data_body">Insecure data storage is</string>
     <string name="txt_email">Email</string>
     <string name="txt_password">Password</string>
     <string name="btn_login">Log in</string>
+    <string name="login_error">Error logging you in</string>
+    <string name="login_success">Logged in!</string>
+    <string name="login_empty">Cannot enter empty fields</string>
+    <string name="login_hint_email">Email = "test@gmail.com"</string>
+    <string name="login_hint_password">Password = "test123"</string>
 </resources>
