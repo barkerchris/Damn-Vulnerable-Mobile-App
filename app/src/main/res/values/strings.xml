@@ -1,6 +1,13 @@
 <resources>
+    <!--App name-->
     <string name="app_name">Damn Vulnerable Mobile App</string>
 
+    <!--Navigation bar-->
+    <string name="nav_home">Home</string>
+    <string name="nav_guides">Guides</string>
+    <string name="nav_settings">Settings</string>
+
+    <!--Buttons-->
     <string name="btn_data">Insecure data storage</string>
     <string name="btn_platform">Improper platform usage</string>
     <string name="btn_communication">Insecure communication</string>
@@ -11,9 +18,13 @@
     <string name="txt_email">Email</string>
     <string name="txt_password">Password</string>
     <string name="btn_login">Log in</string>
+    <string name="btn_logout">Log out</string>
     <string name="login_error">Error logging you in</string>
     <string name="login_success">Logged in!</string>
+    <string name="logout_success">Logged out!</string>
     <string name="login_empty">Cannot enter empty fields</string>
     <string name="login_hint_email">Email = "test@gmail.com"</string>
     <string name="login_hint_password">Password = "test123"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

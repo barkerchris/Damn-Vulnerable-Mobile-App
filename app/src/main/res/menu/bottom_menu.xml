@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_vulnerabilities_menu"
+        android:title="@string/nav_home"
+        android:icon="@drawable/ic_home" />
+
+    <item
+        android:id="@+id/fragment_guides_menu"
+        android:title="@string/nav_guides"
+        android:icon="@drawable/ic_guides" />
+
+    <item
+        android:id="@+id/fragment_settings_menu"
+        android:title="@string/nav_settings"
+        android:icon="@drawable/ic_settings" />
+</menu>
