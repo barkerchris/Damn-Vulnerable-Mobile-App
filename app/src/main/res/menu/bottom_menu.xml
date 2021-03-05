@@ -2,9 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/fragment_vulnerabilities_menu"
+        android:id="@+id/fragment_home"
         android:title="@string/nav_home"
         android:icon="@drawable/ic_home" />
+
+    <item
+        android:id="@+id/fragment_vulnerabilities_menu"
+        android:title="@string/nav_vulnerabilities"
+        android:icon="@drawable/ic_vulnerabilities" />
 
     <item
         android:id="@+id/fragment_guides_menu"

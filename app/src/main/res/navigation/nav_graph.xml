@@ -3,21 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_vulnerabilities_menu">
+    app:startDestination="@id/fragment_home">
 
     <fragment
-        android:id="@+id/fragment_guides_menu"
-        android:name="com.example.damnvulnerablemobileapp.GuidesMenuFragment"
-        android:label="Guides"
-        tools:layout="@layout/fragment_guides_menu" />
+        android:id="@+id/fragment_home"
+        android:name="com.example.damnvulnerablemobileapp.HomeFragment"
+        android:label="@string/nav_home"
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/fragment_vulnerabilities_menu"
         android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesMenuFragment"
-        android:label="Home"
-        tools:layout="@layout/fragment_vulnerabilities_menu"/>
+        android:label="@string/nav_vulnerabilities"
+        tools:layout="@layout/fragment_vulnerabilities_menu" >
+        <action
+            android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesLoggingFragment"
+            app:destination="@id/vulnerabilitiesLoggingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_guides_menu"
+        android:name="com.example.damnvulnerablemobileapp.GuidesMenuFragment"
+        android:label="@string/nav_guides"
+        tools:layout="@layout/fragment_guides_menu" />
     <fragment
         android:id="@+id/fragment_settings_menu"
         android:name="com.example.damnvulnerablemobileapp.SettingsMenuFragment"
-        android:label="Settings"
+        android:label="@string/nav_settings"
         tools:layout="@layout/fragment_settings_menu" />
+
+    <fragment
+        android:id="@+id/vulnerabilitiesLoggingFragment"
+        android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesLoggingFragment"
+        android:label="@string/vulnerabilities_logging_title"
+        tools:layout="@layout/fragment_vulnerabilities_logging" />
+
 </navigation>
