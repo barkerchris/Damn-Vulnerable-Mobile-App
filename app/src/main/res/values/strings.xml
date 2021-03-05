@@ -4,10 +4,36 @@
 
     <!--Navigation bar-->
     <string name="nav_home">Home</string>
+    <string name="nav_vulnerabilities">Vulnerabilities</string>
     <string name="nav_guides">Guides</string>
     <string name="nav_settings">Settings</string>
 
+    <!--Home-->
+    <string name="home_title">Home</string>
+    <string name="home_body">Damn Vulnerable Mobile App (DVMA) is an intentionally insecure Android app. This app aims to educate developers about common vulnerabilities found in Android apps. This project will contain many vulnerabilities from categories as identified in the OWASP Top 10. This app aims to stay up to date with current Android features while maintaining a modern design. For each vulnerability there will be a guide explaining the vulnerability in more detail, along with ways to correct or avoid these common pitfalls. There will also be several videos alongside the written guides covering numerous vulnerabilities.</string>
+
+    <!--Vulnerabilities-->
+    <string name="vulnerabilities_title">Vulnerabilities</string>
+    <string name="vulnerabilities_logging_title">Insecure Data Logging</string>
+
+    <!--Guides-->
+    <string name="guides_title">Guides</string>
+
+    <!--Settings-->
+    <string name="settings_title">Settings</string>
+    <string name="settings_theme">Theme</string>
+
     <!--Buttons-->
+    <string name="btn_system">System</string>
+    <string name="btn_light">Light</string>
+    <string name="btn_dark">Dark</string>
+    <string name="btn_log_in">Log In</string>
+    <string name="btn_vulnerabilities_logging">Data Logging</string>
+
+    <!--Edit text-->
+    <string name="edt_username">Username</string>
+    <string name="edt_password">Password</string>
+
     <string name="btn_data">Insecure data storage</string>
     <string name="btn_platform">Improper platform usage</string>
     <string name="btn_communication">Insecure communication</string>
