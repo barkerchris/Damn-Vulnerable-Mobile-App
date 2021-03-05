@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="green_200">#96d5b3</color> <!--Color primary (dark)-->
+    <color name="green_500">#00ac6a</color> <!--Color primary (light)-->
+    <color name="green_600">#009d60</color> <!--Color primary variant (dark)-->
+    <color name="green_700">#008b53</color> <!--Color primary variant (light)-->
+
+    <color name="purple_200">#b498e5</color> <!--Color secondary-->
+    <color name="purple_500">#6428cb</color> <!--Color secondary variant-->
+
+    <color name="red_200">#f68ba1</color> <!--Color error (dark)-->
+    <color name="red_600">#d41247</color> <!--Color error (light)-->
+
+    <!--Color surface (light), color on error (light), -->
+    <!--color on surface (dark), color on surface (dark)-->
+    <color name="white_50">#ffffff</color>
+
+    <color name="dark_800">#404c60</color> <!--Color surface (dark)-->
+    <!--Color on secondary (light), color on background (light),-->
+    <!--color on surface (light)-->
+    <color name="dark_900">#2d3748</color>
 </resources>
