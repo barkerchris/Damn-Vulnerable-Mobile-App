@@ -9,7 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.damnvulnerablemobileapp.databinding.FragmentVulnerabilitiesMenuBinding
 
-class VulnerabilitiesMenuFragment : Fragment(), View.OnClickListener {
+class VulnerabilitiesMenuFragment : Fragment() {
 
     private var _binding: FragmentVulnerabilitiesMenuBinding? = null
     private val binding get() = _binding!!
@@ -20,15 +20,17 @@ class VulnerabilitiesMenuFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentVulnerabilitiesMenuBinding.inflate(inflater, container, false)
-
-        //navController = Navigation.findNavController(this.requireView())
-
         return binding.root
     }
 
-    override fun onClick(v: View?) {
-        when (v!!.id) {
-            //
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnVulnerabilitiesLogging.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_fragment_vulnerabilities_menu_to_vulnerabilitiesLoggingFragment)
+        }
+        binding.button.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_fragment_vulnerabilities_menu_to_dataFragment)
         }
     }
 
