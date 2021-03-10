@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesLoggingFragment"
             app:destination="@id/vulnerabilitiesLoggingFragment" />
+        <action
+            android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesStorageFragment"
+            app:destination="@id/vulnerabilitiesStorageFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_guides_menu"
@@ -35,5 +38,9 @@
         android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesLoggingFragment"
         android:label="@string/vulnerabilities_logging_title"
         tools:layout="@layout/fragment_vulnerabilities_logging" />
+    <fragment
+        android:id="@+id/vulnerabilitiesStorageFragment"
+        android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesStorageFragment"
+        android:label="VulnerabilitiesStorageFragment" />
 
 </navigation>
