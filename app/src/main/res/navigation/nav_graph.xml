@@ -21,6 +21,12 @@
         <action
             android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesStorageFragment"
             app:destination="@id/vulnerabilitiesStorageFragment" />
+        <action
+            android:id="@+id/action_fragment_vulnerabilities_menu_to_secureStorageFragment"
+            app:destination="@id/secureStorageFragment" />
+        <action
+            android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesAuthenticationFragment"
+            app:destination="@id/vulnerabilitiesAuthenticationFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_guides_menu"
@@ -32,15 +38,24 @@
         android:name="com.example.damnvulnerablemobileapp.SettingsMenuFragment"
         android:label="@string/nav_settings"
         tools:layout="@layout/fragment_settings_menu" />
-
     <fragment
         android:id="@+id/vulnerabilitiesLoggingFragment"
         android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesLoggingFragment"
-        android:label="@string/vulnerabilities_logging_title"
+        android:label="@string/txt_vulnerabilities_logging_title"
         tools:layout="@layout/fragment_vulnerabilities_logging" />
     <fragment
         android:id="@+id/vulnerabilitiesStorageFragment"
         android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesStorageFragment"
-        android:label="VulnerabilitiesStorageFragment" />
+        android:label="VulnerabilitiesStorageFragment"
+        tools:layout="@layout/fragment_vulnerabilities_storage" />
+    <fragment
+        android:id="@+id/secureStorageFragment"
+        android:name="com.example.damnvulnerablemobileapp.SecureStorageFragment"
+        android:label="SecureStorageFragment" />
+    <fragment
+        android:id="@+id/vulnerabilitiesAuthenticationFragment"
+        android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesAuthenticationFragment"
+        android:label="VulnerabilitiesAuthenticationFragment"
+        tools:layout="@layout/fragment_vulnerabilities_authentication" />
 
 </navigation>

@@ -5,14 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_vulnerabilities_storage_retrieve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/btn_retrieve"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_secure_storage_password" />
+
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txt_vulnerabilities_logging_title"
+        android:id="@+id/txt_secure_storage_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/txt_vulnerabilities_logging_title"
+        android:text="@string/txt_password"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_secure_storage_username" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_secure_storage_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/txt_username"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_secure_storage_retrieve" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_secure_storage_retrieve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/txt_secure_storage_retrieve"
+        android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_vulnerabilities_storage_log_in" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txt_secure_storage_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/txt_secure_storage_title"
         android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,10 +82,9 @@
         app:errorIconTint="?attr/colorError"
         app:errorTextAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
         app:errorTextColor="?attr/colorError"
-        app:hintTextAppearance="@style/TextAppearance.MdcTypographyStyles.Overline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_vulnerabilities_logging_title">
+        app:layout_constraintTop_toBottomOf="@+id/txt_secure_storage_title">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -56,7 +106,6 @@
         app:errorIconTint="?attr/colorError"
         app:errorTextAppearance="@style/TextAppearance.MdcTypographyStyles.Subtitle2"
         app:errorTextColor="?attr/colorError"
-        app:hintTextAppearance="@style/TextAppearance.MdcTypographyStyles.Overline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_username"
@@ -70,11 +119,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_vulnerabilities_logging_log_in"
+        android:id="@+id/btn_vulnerabilities_storage_log_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/btn_log_in"
+        android:text="@string/btn_store"
         android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Button"
         app:layout_constraintEnd_toEndOf="@+id/edt_password"
         app:layout_constraintTop_toBottomOf="@+id/edt_password" />

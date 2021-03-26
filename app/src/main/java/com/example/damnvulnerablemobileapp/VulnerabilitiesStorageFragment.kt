@@ -4,13 +4,12 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.damnvulnerablemobileapp.databinding.FragmentVulnerabilitiesStorageBinding
+import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -33,46 +32,54 @@ class VulnerabilitiesStorageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnVulnerabilitiesStorageLogIn.setOnClickListener {
-            storeUser()
+            storeUser(view)
         }
     }
 
-    private fun storeUser() {
-        val email = binding.edtUsername.editText!!.text.toString()
-        val password = binding.edtPassword.editText!!.text.toString()
+    private fun storeUser(view: View) {
+        if (binding.edtUsername.editText!!.text.isEmpty() ||
+                binding.edtPassword.editText!!.text.isEmpty()) {
+            binding.edtUsername.error = getString(R.string.txt_empty)
+            binding.edtPassword.error = getString(R.string.txt_empty)
+        } else {
+            binding.edtUsername.error = null
+            binding.edtPassword.error = null
+            val username = binding.edtUsername.editText!!.text.toString()
+            val password = binding.edtPassword.editText!!.text.toString()
 
-        sharedPreferences(email, password)
-        internalStorage(email, password)
-        externalStorage(email, password)
-        database(email, password)
+            sharedPreferences(username, password)
+            internalStorage(username, password)
+            externalStorage(username, password)
+            database(username, password)
 
-        Toast.makeText(requireContext(), R.string.tst_storage_success, Toast.LENGTH_LONG).show()
+            Snackbar.make(view, R.string.snk_saved_credentials, Snackbar.LENGTH_SHORT).show()
+        }
     }
 
-    private fun sharedPreferences(email: String, password: String) {
+    private fun sharedPreferences(username: String, password: String) {
         val sharedPrefs: SharedPreferences = requireActivity().getSharedPreferences("userProfileSP", Context.MODE_PRIVATE)
         val sharedPrefsEdit: SharedPreferences.Editor = sharedPrefs.edit()
-        sharedPrefsEdit.putString("email", email)
+        sharedPrefsEdit.putString("username", username)
         sharedPrefsEdit.putString("password", password)
         sharedPrefsEdit.apply()
     }
 
-    private fun internalStorage(email: String, password: String) {
+    private fun internalStorage(username: String, password: String) {
         val myFile = File(requireContext().filesDir, "userProfileIS.txt")
-        fileWriter(myFile, email, password)
+        fileWriter(myFile, username, password)
     }
 
-    private fun externalStorage(email: String, password: String) {
+    private fun externalStorage(username: String, password: String) {
         if(Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()) {
             val myFile = File(requireContext().getExternalFilesDir(null), "userProfileES.txt")
-            fileWriter(myFile, email, password)
+            fileWriter(myFile, username, password)
         }
     }
 
-    private fun fileWriter(myFile: File, email: String, password: String) {
+    private fun fileWriter(myFile: File, username: String, password: String) {
         try {
             val fileOutputStream = FileOutputStream(myFile)
-            fileOutputStream.write("username: $email\n".toByteArray())
+            fileOutputStream.write("username: $username\n".toByteArray())
             fileOutputStream.write("password: $password\n".toByteArray())
             fileOutputStream.close()
         } catch (e: IOException) {
@@ -80,9 +87,9 @@ class VulnerabilitiesStorageFragment : Fragment() {
         }
     }
 
-    private fun database(email: String, password: String) {
+    private fun database(username: String, password: String) {
         val db = DatabaseHelper(requireContext())
-        db.addUser(email, password)
+        db.addUser(username, password)
     }
 
     override fun onDestroy() {

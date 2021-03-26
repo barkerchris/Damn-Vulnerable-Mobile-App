@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.damnvulnerablemobileapp.databinding.FragmentVulnerabilitiesLoggingBinding
+import com.google.android.material.snackbar.Snackbar
 import java.io.*
 
 class VulnerabilitiesLoggingFragment : Fragment() {
@@ -27,12 +28,22 @@ class VulnerabilitiesLoggingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnVulnerabilitiesLoggingLogIn.setOnClickListener {
-            //clear logcat before logging
-            Runtime.getRuntime().exec("logcat -c")
-            //log user input
-            Log.d("Username: ", binding.edtUsername.editText!!.text.toString())
-            Log.d("Password: ", binding.edtPassword.editText!!.text.toString())
-            dumpLogs()
+            if (binding.edtUsername.editText!!.text.isEmpty() ||
+                    binding.edtPassword.editText!!.text.isEmpty()) {
+                binding.edtUsername.error = getString(R.string.txt_empty)
+                binding.edtPassword.error = getString(R.string.txt_empty)
+            } else {
+                binding.edtUsername.error = null
+                binding.edtPassword.error = null
+                //clear logcat before logging
+                Runtime.getRuntime().exec("logcat -c")
+                //log user input
+                Log.d("Username: ", binding.edtUsername.editText!!.text.toString())
+                Log.d("Password: ", binding.edtPassword.editText!!.text.toString())
+                dumpLogs()
+
+                Snackbar.make(view, R.string.snk_saved_credentials, Snackbar.LENGTH_SHORT).show()
+            }
         }
     }
 
