@@ -9,53 +9,42 @@
     <string name="nav_settings">Settings</string>
 
     <!--Home-->
-    <string name="home_title">Home</string>
-    <string name="home_body">Damn Vulnerable Mobile App (DVMA) is an intentionally insecure Android app. This app aims to educate developers about common vulnerabilities found in Android apps. This project will contain many vulnerabilities from categories as identified in the OWASP Top 10. This app aims to stay up to date with current Android features while maintaining a modern design. For each vulnerability there will be a guide explaining the vulnerability in more detail, along with ways to correct or avoid these common pitfalls. There will also be several videos alongside the written guides covering numerous vulnerabilities.</string>
+    <string name="txt_home_title">Home</string>
+    <string name="txt_home_body">Damn Vulnerable Mobile App (DVMA) is an intentionally insecure Android app. This app aims to educate developers about common vulnerabilities found in Android apps. This project will contain many vulnerabilities from categories as identified in the OWASP Top 10. This app aims to stay up to date with current Android features while maintaining a modern design. For each vulnerability there will be a guide explaining the vulnerability in more detail, along with ways to correct or avoid these common pitfalls. There will also be several videos alongside the written guides covering numerous vulnerabilities.</string>
 
     <!--Vulnerabilities-->
-    <string name="vulnerabilities_title">Vulnerabilities</string>
-    <string name="vulnerabilities_logging_title">Insecure Data Logging</string>
-    <string name="vulnerabilities_storage_title">Insecure Data Storage</string>
+    <string name="txt_vulnerabilities_title">Vulnerabilities</string>
+    <string name="txt_vulnerabilities_logging_title">Insecure Data Logging</string>
+    <string name="txt_vulnerabilities_storage_title">Insecure Data Storage</string>
+    <string name="txt_vulnerabilities_authentication_title">Insecure Authentication</string>
 
     <!--Guides-->
-    <string name="guides_title">Guides</string>
+    <string name="txt_guides_title">Guides</string>
 
     <!--Settings-->
-    <string name="settings_title">Settings</string>
-    <string name="settings_theme">Theme</string>
+    <string name="txt_settings_title">Settings</string>
+    <string name="txt_settings_theme">Theme</string>
 
     <!--Buttons-->
     <string name="btn_system">System</string>
     <string name="btn_light">Light</string>
     <string name="btn_dark">Dark</string>
-    <string name="btn_log_in">Log In</string>
     <string name="btn_vulnerabilities_logging">Data Logging</string>
     <string name="btn_vulnerabilities_storage">Data Storage</string>
-
-    <!--Edit text-->
-    <string name="edt_username">Username</string>
-    <string name="edt_password">Password</string>
+    <string name="btn_vulnerabilities_authentication">Authentication</string>
+    <string name="btn_log_in">Log In</string>
+    <string name="btn_store">Store</string>
+    <string name="btn_retrieve">Retrieve</string>
 
     <!--Other-->
-    <string name="tst_storage_success">Saved credentials!</string>
-
-    <string name="btn_data">Insecure data storage</string>
-    <string name="btn_platform">Improper platform usage</string>
-    <string name="btn_communication">Insecure communication</string>
-    <string name="btn_handling">Insecure data handling</string>
-    <string name="btn_authentication">Poor authentication</string>
-
-    <string name="instructions">Click a button to go to the vulnerability page:</string>
-    <string name="txt_email">Email</string>
+    <string name="txt_secure_storage_title">Secure Data Storage</string>
+    <string name="txt_secure_storage_retrieve">Retrieve Stored Data</string>
+    <string name="txt_username">Username</string>
     <string name="txt_password">Password</string>
-    <string name="btn_login">Log in</string>
-    <string name="btn_logout">Log out</string>
-    <string name="login_error">Error logging you in</string>
-    <string name="login_success">Logged in!</string>
-    <string name="logout_success">Logged out!</string>
-    <string name="login_empty">Cannot enter empty fields</string>
-    <string name="login_hint_email">Email = "test@gmail.com"</string>
-    <string name="login_hint_password">Password = "test123"</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_empty">Cannot be empty</string>
+    <string name="txt_pin">PIN</string>
+    <string name="txt_wrong_pin">Incorrect PIN</string>
+    <string name="snk_saved_credentials">Saved credentials!</string>
+    <string name="snk_correct_pin">Correct pin!</string>
+
 </resources>
