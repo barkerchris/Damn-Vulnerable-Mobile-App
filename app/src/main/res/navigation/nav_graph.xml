@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesAuthenticationFragment"
             app:destination="@id/vulnerabilitiesAuthenticationFragment" />
+        <action
+            android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesBroadcastFragment"
+            app:destination="@id/vulnerabilitiesBroadcastFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragment_guides_menu"
@@ -51,11 +54,17 @@
     <fragment
         android:id="@+id/secureStorageFragment"
         android:name="com.example.damnvulnerablemobileapp.SecureStorageFragment"
-        android:label="SecureStorageFragment" />
+        android:label="SecureStorageFragment"
+        tools:layout="@layout/fragment_secure_storage" />
     <fragment
         android:id="@+id/vulnerabilitiesAuthenticationFragment"
         android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesAuthenticationFragment"
         android:label="VulnerabilitiesAuthenticationFragment"
         tools:layout="@layout/fragment_vulnerabilities_authentication" />
+    <fragment
+        android:id="@+id/vulnerabilitiesBroadcastFragment"
+        android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesBroadcastFragment"
+        android:label="VulnerabilitiesBroadcastFragment"
+        tools:layout="@layout/fragment_vulnerabilities_broadcast" />
 
 </navigation>

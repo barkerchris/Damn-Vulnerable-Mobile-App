@@ -17,6 +17,7 @@
     <string name="txt_vulnerabilities_logging_title">Insecure Data Logging</string>
     <string name="txt_vulnerabilities_storage_title">Insecure Data Storage</string>
     <string name="txt_vulnerabilities_authentication_title">Insecure Authentication</string>
+    <string name="txt_vulnerabilities_broadcast_title">Insecure Broadcast</string>
 
     <!--Guides-->
     <string name="txt_guides_title">Guides</string>
@@ -32,6 +33,7 @@
     <string name="btn_vulnerabilities_logging">Data Logging</string>
     <string name="btn_vulnerabilities_storage">Data Storage</string>
     <string name="btn_vulnerabilities_authentication">Authentication</string>
+    <string name="btn_vulnerabilities_broadcast">Broadcast</string>
     <string name="btn_log_in">Log In</string>
     <string name="btn_store">Store</string>
     <string name="btn_retrieve">Retrieve</string>

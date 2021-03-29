@@ -37,6 +37,9 @@ class VulnerabilitiesMenuFragment : Fragment() {
         binding.btnVulnerabilitiesAuthentication.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_fragment_vulnerabilities_menu_to_vulnerabilitiesAuthenticationFragment)
         }
+        binding.btnVulnerabilitiesBroadcast.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_fragment_vulnerabilities_menu_to_vulnerabilitiesBroadcastFragment)
+        }
     }
 
     override fun onDestroy() {
