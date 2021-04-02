@@ -30,7 +30,11 @@
         <action
             android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesBroadcastFragment"
             app:destination="@id/vulnerabilitiesBroadcastFragment" />
+        <action
+            android:id="@+id/action_fragment_vulnerabilities_menu_to_vulnerabilitiesActivityFragment"
+            app:destination="@id/vulnerabilitiesActivityFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_guides_menu"
         android:name="com.example.damnvulnerablemobileapp.GuidesMenuFragment"
@@ -66,5 +70,10 @@
         android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesBroadcastFragment"
         android:label="VulnerabilitiesBroadcastFragment"
         tools:layout="@layout/fragment_vulnerabilities_broadcast" />
+    <fragment
+        android:id="@+id/vulnerabilitiesActivityFragment"
+        android:name="com.example.damnvulnerablemobileapp.VulnerabilitiesActivityFragment"
+        android:label="VulnerabilitiesActivityFragment"
+        tools:layout="@layout/fragment_vulnerabilities_activity" />
 
 </navigation>

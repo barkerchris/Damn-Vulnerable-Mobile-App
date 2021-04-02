@@ -18,6 +18,7 @@
     <string name="txt_vulnerabilities_storage_title">Insecure Data Storage</string>
     <string name="txt_vulnerabilities_authentication_title">Insecure Authentication</string>
     <string name="txt_vulnerabilities_broadcast_title">Insecure Broadcast</string>
+    <string name="txt_vulnerabilities_activity_title">Insecure Activity</string>
 
     <!--Guides-->
     <string name="txt_guides_title">Guides</string>
@@ -34,6 +35,7 @@
     <string name="btn_vulnerabilities_storage">Data Storage</string>
     <string name="btn_vulnerabilities_authentication">Authentication</string>
     <string name="btn_vulnerabilities_broadcast">Broadcast</string>
+    <string name="btn_vulnerabilities_activity">Activity</string>
     <string name="btn_log_in">Log In</string>
     <string name="btn_store">Store</string>
     <string name="btn_retrieve">Retrieve</string>
@@ -41,6 +43,7 @@
     <!--Other-->
     <string name="txt_secure_storage_title">Secure Data Storage</string>
     <string name="txt_secure_storage_retrieve">Retrieve Stored Data</string>
+    <string name="txt_activity_vulnerabilities_activity_body">Sensitive/secret information!</string>
     <string name="txt_username">Username</string>
     <string name="txt_password">Password</string>
     <string name="txt_empty">Cannot be empty</string>

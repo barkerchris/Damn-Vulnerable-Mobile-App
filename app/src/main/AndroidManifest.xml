@@ -21,6 +21,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".VulnerabilitiesActivityPageActivity">
+            <intent-filter>
+                <action android:name="com.example.damnvulnerablemobileapp.OPEN_INFO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
