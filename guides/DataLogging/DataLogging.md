@@ -6,7 +6,7 @@ Android Studio allows you to read and write system and app-specific messages to 
 ## Vulnerability
 In this app, the log files are being written to a file and dumped in Internal Storage. As I cover in the Insecure Data Storage guide, this is potentially dangerous and can lead to the leaking of private information.
 In this case, the following code is the suspect:
-''' kotlin
+```kotlin
 binding.btnVulnerabilitiesLoggingLogIn.setOnClickListener {
     if (binding.edtUsername.editText!!.text.isEmpty() ||
         binding.edtPassword.editText!!.text.isEmpty()) {
@@ -45,14 +45,14 @@ private fun dumpLogs() {
         throw RuntimeException(e)
     }
 }
-'''
+```
 
 ## What does this look like
 In order to write a message you must use the [Log API](https://developer.android.com/reference/android/util/Log). There are many different options for the different types of messages that can be written. In the app I have used the .d() command in order to write a DEBUG message. In the app, the user's username and password are logged to the console, and every time the user presses 'Log In' the log files are written to a file and saved in Internal Storage.
 The specific line for logging the username is as follows:
-''' kotlin
+```kotlin
 Log.d("Username: ", binding.edtUsername.editText!!.text.toString())
-'''
+```
 
 The first argument is the tag that can be searched for in Logcat. The second argument is the actual message that should be written.
 
