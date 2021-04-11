@@ -4,8 +4,8 @@
 Android Studio allows you to read and write system and app-specific messages to the [Logcat window](https://developer.android.com/studio/debug/am-logcat). While logging can be indispensable in debugging and development, it has the potential to leak Personally Identifiable Information (PII), or other sensitive information.
 
 ## Vulnerability
-In this app, the log files are being written to a file and dumped in Internal Storage. As I cover in the Insecure Data Storage guide, this is potentially dangerous and can lead to the leaking of private information.
-In this case, the following code is the suspect:
+In this app, the log files are being written to a file and dumped in Internal Storage. As covered in the [Insecure Data Storage](/guides/DataStorage/DataStorage.md) guide, this is potentially dangerous and can lead to the leaking of private information.
+In this case, the following code is responsible for this behaviour:
 ```kotlin
 binding.btnVulnerabilitiesLoggingLogIn.setOnClickListener {
     if (binding.edtUsername.editText!!.text.isEmpty() ||
