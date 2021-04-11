@@ -8,14 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.damnvulnerablemobileapp.databinding.FragmentVulnerabilitiesBroadcastBinding
 
+
 class VulnerabilitiesBroadcastFragment : Fragment() {
 
     private var _binding: FragmentVulnerabilitiesBroadcastBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         _binding = FragmentVulnerabilitiesBroadcastBinding.inflate(inflater, container, false)
 
