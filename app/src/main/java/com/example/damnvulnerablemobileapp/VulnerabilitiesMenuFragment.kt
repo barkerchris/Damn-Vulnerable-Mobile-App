@@ -31,9 +31,6 @@ class VulnerabilitiesMenuFragment : Fragment() {
         binding.btnVulnerabilitiesStorage.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_fragment_vulnerabilities_menu_to_vulnerabilitiesStorageFragment)
         }
-        binding.button.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_fragment_vulnerabilities_menu_to_secureStorageFragment)
-        }
         binding.btnVulnerabilitiesAuthentication.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_fragment_vulnerabilities_menu_to_vulnerabilitiesAuthenticationFragment)
         }

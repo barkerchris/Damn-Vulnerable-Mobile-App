@@ -22,6 +22,290 @@
 
     <!--Guides-->
     <string name="txt_guides_title">Guides</string>
+    <string name="txt_guides_introduction">Introduction</string>
+    <string name="txt_guides_vulnerability">Vulnerability</string>
+    <string name="txt_guides_what">What this looks like</string>
+    <string name="txt_guides_where">Where this can be found</string>
+    <string name="txt_guides_mitigation">Mitigation</string>
+
+    <string name="txt_guides_activity_title">Improper System Use - Activity</string>
+    <string name="txt_guides_activity_introduction">
+        An Activity (https://developer.android.com/reference/android/app/Activity) is a building block of an app. You can think of an Activity as often representing a single screen in an app. They are responsible for loading the UI, and contain all business logic for the current screen. Activities can be opened from other Activities using startActivity() (https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)) and passing in an Intent (https://developer.android.com/reference/android/content/Intent).
+        <br><br></br></br>
+        <b>Note:</b> Google has been pushing the single Activity, multiple Fragment way of creating apps for several years now with the introduction of Jetpack Navigation (https://developer.android.com/guide/navigation/). This will eventually lead to a reduction of apps based around the multiple Activity framework which will hopefully lead to less Activity vulnerabilities seen in the wild.
+    </string>
+    <string name="txt_guides_activity_vulnerability">
+        In this app, there is a button which when pressed opens up a new Activity. For example, in a banking app there could be a home page, and then a button which will open up a screen for transferring money to other accounts.
+        <br></br>
+        The issue in this app is the call to open the Activity uses an Implicit Intent and the Activity to be opened has Intent Filters. This is a similar issue that is explored in the Broadcasts Guide (in this app). Because it uses an Implicit Intent, the Activity being opened needs Intent Filters to help the OS identify which Activity should be opened given an action. As soon as an Intent Filter is declared in the Manifest, the <b>android:exported</b> value is set to true, allowing outside applications to open the Activity.
+    </string>
+    <string name="txt_guides_activity_what">
+        The call to open the new Activity is:
+        <br></br>
+        private fun openActivity() {
+        <br></br>
+            val intent = Intent("com.example.damnvulnerablemobileapp.OPEN_INFO")
+        <br></br>
+            startActivity(intent)
+        <br></br>
+        }
+        <br><br></br></br>
+        The AndroidManifest code for the new Activity:
+        <br></br>
+        activity android:name=".VulnerabilitiesActivityPageActivity"
+        <br></br>
+            intent-filter
+        <br></br>
+                action android:name="com.example.damnvulnerablemobileapp.OPEN_INFO" /
+        <br></br>
+                category android:name="android.intent.category.DEFAULT" /
+        <br></br>
+            /intent-filter
+        <br></br>
+        /activity
+        <br><br></br></br>
+        By using a tool such as jadx (https://github.com/skylot/jadx), we can retrieve the original source code from an APK of the app. Using jadx we can then find the AndroidManifest.xml and search fo all exported Activities. Once we have the name of the target Activity, we can open it from another project like so:
+        <br></br>
+        binding.btnHelpersActivityOpen.setOnClickListener {
+        <br></br>
+            val intent = Intent("com.example.damnvulnerablemobileapp.OPEN_INFO")
+        <br></br>
+            startActivity(intent)
+        <br></br>
+        }
+        <br><br></br></br>
+        This code opens up the Activity from the main app. If there was sensitive information displayed then it would now be loaded on the screen. Also, if there are dangerous functions accessible then these could now be used.
+    </string>
+    <string name="txt_guides_activity_where">
+        Firstly, the app must still be using the multiple Activity model. Furthermore, in the Manifest the Activities must either have the <b>android:exported</b> tag set to true or have intent filters set, allowing external apps to launch the Activity.
+    </string>
+    <string name="txt_guides_activity_mitigation">
+        If the Activity is not meant to be accessed from outside the app then it should have the <b>android:exported</b> property set to <b>false</b>, and should not have any Intent Filters. You should then use Explicit Intents in order to specify the class name when starting the Activity. If the Activity needs to be accessed externally, then you could pass extra data with the Intent and have a check for this data in the app to avoid rogue calls from other apps.
+    </string>
+
+    <string name="txt_guides_authentication_title">Insecure Authentication</string>
+    <string name="txt_guides_authentication_introduction">
+        Authentication is the act of confirming a "user's" identity. Many apps require user accounts which will naturally require authentication in order to check details for their correctness. If authentication is carried out by a 3rd party server then this section will not be relevant, but if your app uses local authentication then this guide will be something to think about.
+        <br></br>
+        There are two main issues that apps commonly contain. The first is the lack of attempt counter. This leaves the app vulnerable to brute force attack. The second issue is related to the first. Many apps use a 4-digit PIN as a way of securing certain content (e.g. secret folders). The issue is that 4 digit PIN codes only have 10000 combinations. Computationally this is a small number and a brute force attack would be almost instantaneous. Furthermore, according to this website (https://datagenetics.com/blog/september32012/index.html) 20 combinations account for 26.83% of all combinations.
+    </string>
+    <string name="txt_guides_authentication_vulnerability">
+        In this app, the log in screen not only uses a 4 digit PIN code, but it does not track the number of attempts leaving the app and authentication open to attack. I have created a Bash script to demonstrate the ability to brute force the password on the emulator. The code for the script is below:
+        <br><br></br></br>
+        #!/usr/bin/env bash
+        <br><br></br></br>
+        cd C:/Users/chris/AppData/Local/Android/Sdk/platform-tools
+        <br></br>
+        ./adb shell am start -n com.example.damnvulnerablemobileapp/.MainActivity
+        <br></br>
+        ./adb shell input touchscreen tap 400 2100
+        <br></br>
+        ./adb shell input touchscreen tap 540 700
+        <br></br>
+        ./adb shell input touchscreen tap 540 350
+        <br></br>
+        for number in {0000..9999};
+        <br></br>
+        do
+        <br></br>
+            ./adb shell input text "$number"
+        <br></br>
+            ./adb shell input touchscreen tap 900 550
+        <br></br>
+        done
+        <br></br>
+        exit 0
+    </string>
+    <string name="txt_guides_authentication_what">
+        In code this will be noticeable anywhere that PIN numbers are accepted. There will also be a lack of tests regarding incorrect login attempts.
+    </string>
+    <string name="txt_guides_authentication_where">
+        Authentication can occur anywhere in an app that needs to check entered details - usually for accessing hidden content or logging into an account.
+    </string>
+    <string name="txt_guides_authentication_mitigation">
+         As mentioned at the beginning, shifting authentication to a 3rd party server with appropriate security measures will relieve the need for checks locally in the app. If authentication must occur locally then make sure that there are time-outs associated with incorrect login attempts. Furthermore, if there is a need for passwords, always enforce alphanumeric passwords to ensure strong password strength.
+    </string>
+
+    <string name="txt_guides_broadcast_title">Improper System Use - Broadcast</string>
+    <string name="txt_guides_broadcast_introduction">
+        Android provides the ability for apps to send and receive messages to other apps when certain system or in-app events occur. These messages are called Broadcasts (https://developer.android.com/guide/components/broadcasts). There are two types of Broadcast. Implicit Broadcast and Explicit Broadcast.
+        <br><br></br></br>
+        Implicit Broadcasts are broadcasts that do not target your app specifically. They are sent out with the intention of letting the system decide which apps may receive the message based off the action specified in the code.
+        <br></br>
+        Implicit Broadcast:
+        <br></br>
+        val intent = Intent("com.example.damnvulnerablemobileapp.SEND_BROADCAST")
+        <br></br>
+        activity?.sendBroadcast(intent)
+        <br><br></br></br>
+        Explicit Broadcasts are broadcasts that are sent with the specific component that they wish to trigger.
+        <br></br>
+        Explicit Broadcast:
+        <br></br>
+        val intent = Intent(requireContext(), BroadcastReceiver::class.java)
+        <br></br>
+        activity?.sendBroadcast(intent)
+    </string>
+    <string name="txt_guides_broadcast_vulnerability">
+        In this app, when the user logs in an implicit broadcast is sent out with sensitive information. Because it is implicit, any app could intercept this broadcast given they have the correct action.
+        <br></br>
+        Using a tool such as jadx (https://github.com/skylot/jadx), it is possible to decompile APKs in order to retrieve source code. This will allow someone to see the broadcast calls and determine if they are vulnerable to interception. Under this assumption, the content of any <b>implicit</b> broadcast is accessible leaving the data vulnerable to snooping.
+    </string>
+    <string name="txt_guides_broadcast_where">
+        Anywhere in code where sensitive data meant for a specific target is instead sent implicitly leaving the data world-readable.
+    </string>
+    <string name="txt_guides_broadcast_mitigation">
+        If there is a known target, then always use explicit broadcasts as these stop the system from determining the correct recipient which will avoid the chance of another app intercepting the data.
+        <br></br>
+        If a Implicit Broadcast is required, then always assume the data being sent is readable by everything. Determine what data is truly necessary and then encrypt any sensitive parts. You can also send broadcasts with a permission parameter which will limit receivers to those who have requested that permission.
+        <br><br></br></br>
+        Google realised that often broadcasts are sent and intended for another component in-app. This means that sending them globally is unsafe, and inefficient. Due to this, it is possible to send local broadcasts with LocalBroadcastManager (https://developer.android.com/reference/androidx/localbroadcastmanager/content/LocalBroadcastManager). This will limit broadcasts to just your app which will be safer and more performant. Sending and receiving broadcasts is very much the same, just with a different manager. For example:
+        <br></br>
+        val localBroadcastManager = LocalBroadcastManager.getInstance(requireContext())
+        <br></br>
+        val intent = Intent("com.example.damnvulnerablemobileapp.SEND_BROADCAST")
+        <br></br>
+        localBroadcastManager.sendBroadcast(intent)
+    </string>
+
+    <string name="txt_guides_logging_title">Insecure Data Logging</string>
+    <string name="txt_guides_logging_introduction">
+        Android Studio allows you to read and write system and app-specific messages to the Logcat window (https://developer.android.com/studio/debug/am-logcat). While logging can be indispensable in debugging and development, it has the potential to leak Personally Identifiable Information (PII), or other sensitive information.
+    </string>
+    <string name="txt_guides_logging_vulnerability">
+        In this app, when the user logs in, the username and password are logged to the Logcat console and then this console is dumped to a file in Internal Storage.
+        <br></br>
+        While other apps cannot access another apps Internal Storage, we (as users) can. This means that if someone were to gain access to the phone - or if it is lost, it would be trivial to retrieve these stored file. This could then give the attacker user credentials, or whatever sensitive information that is being logged by the app.
+    </string>
+    <string name="txt_guides_logging_what">
+        In order to write a message you must use the Log API (https://developer.android.com/reference/android/util/Log). There are many different options for the different types of messages that can be written. In this instance, the .d() command is being used to write a DEBUG message.
+        <br><br></br></br>
+        The specific line for logging the username is as follows:
+        <br></br>
+        Log.d("Username: ", binding.edtUsername.editText!!.text.toString())
+        <br><br></br></br>
+        The first argument is the tag that can be searched for in Logcat. The second argument is the actual message that should be written.
+    </string>
+    <string name="txt_guides_logging_where">
+        Logging statements can be found anywhere inside an app, but will usually be found around code which performs key actions - such as verifying user information or storing information locally.
+    </string>
+    <string name="txt_guides_logging_mitigation">
+        As a developer you should be very careful about what is being logged (if logging is kept in the production builds) so that sensitive information or PII can not be leaked to other applications or malicious actors. The simplest solutions include removing logging from the production builds, or to go through and ensure no sensitive information is saved inside these logs. In particular, avoid saving logs to file.
+    </string>
+
+    <string name="txt_guides_storage_title">Insecure Data Storage</string>
+    <string name="txt_guides_storage_introduction">
+        In a recent review of mobile application security (https://www.ptsecurity.com/ww-en/analytics/mobile-application-security-threats-and-vulnerabilities-2019/), Insecure Data Storage was found to be the most common issue, found in 76% of apps. This is a huge number, and clearly shows that there is a lack of developer knowledge when it comes to storing information.
+        <br></br>
+        As stated in the documentation (https://developer.android.com/training/data-storage/), Android provides many ways to store data locally on the phone. The different options all have their purpose and it is important to use the correct type of storage for a given scenario. By default, Android provides no native way of encrypting data and this responsibility falls to you as the developer.
+    </string>
+    <string name="txt_guides_storage_vulnerability">
+        In this app, when the user logs in their username and password are saved - unencrypted - in Internal and External Storage, SharedPreferences and an SQLite Database.
+        <br><br></br></br>
+        The first issue with this is the most obvious one - the data is stored completely unencrypted. Any PII should be encrypted independent of where the data is stored. As mentioned in this video (https://www.youtube.com/watch?v=W3mwSnF1n50), when you search for AES encryption in Android one of the first results on StackOverflow is this:
+    </string>
+    <string name="txt_guides_storage_vulnerability2">
+        There are several issues with this answer. The answer itself is covered in warnings saying it is unsafe and not suitable to be used - but people will do so anyway. The answer uses now-deprecated functions and does not make use of "Android's" Keystore (https://developer.android.com/training/articles/keystore).
+        <br><br></br></br>
+        The second issue is where this data is stored. External Storage is an inappropriate storage method for storing app-specific sensitive information because it is globally readable by other apps.
+        <br></br>
+        As mentioned in the DataLogging Guide (in this app), while the other storage locations are not able to be read by other apps, if the physical device is obtained then it is easy to access all of these files.
+    </string>
+    <string name="txt_guides_storage_what">
+        The code snippet for storing the data is included below. The key thing to note is the lack of encryption used.
+        <br></br>
+        fileOutputStream.write("username: $username\n".toByteArray())
+        <br></br>
+        fileOutputStream.write("password: $password\n".toByteArray())
+    </string>
+    <string name="txt_guides_storage_where">
+        Insecure Data Storage can be found anywhere but will be particularly common in areas of the app that handle user information such as a log in screen, or a place where the user inputs data into a form.
+    </string>
+    <string name="txt_guides_storage_mitigation">
+        Traditionally in Android, encryption falls to the developer to implement. However, Google realised that the lack of integrated solution was problematic and created a library - JetpackSecurity (https://developer.android.com/jetpack/androidx/releases/security) - to help developers implement secure encryption in their apps. In order to promote this library, Google released this video (https://www.youtube.com/watch?v=W3mwSnF1n50) as part of the launch, along with this video (https://www.youtube.com/watch?v=2y9Ol2N1I4k) as part of the Enterprise Dev Training series they run. They also released this (https://android-developers.googleblog.com/2020/02/data-encryption-on-android-with-jetpack.html) blog post showing developers how to use the library to encrypt data.
+        <br><br></br></br>
+        Jetpack Security provides key creation and verification along with two classes to help developers store their data securely.
+        <br></br>
+        The first thing I will talk about is the introduction of EncryptedSharedPreferences (https://developer.android.com/reference/androidx/security/crypto/EncryptedSharedPreferences). This is the encrypted form of the regular SharedPreferences you will be used to using. For more information on SharedPreferences visit the documentation (https://developer.android.com/training/data-storage/shared-preferences).
+        <br></br>
+        In order to use the EncryptedSharedPreferences, after ensuring you have added the correct gradle dependencies, you must first create a key.
+        <br></br>
+        This library gives many different options for creating keys such as requiring user authentication and setting a time window that the key is valid for. However, for most applications Google recommends the following:
+        <br></br>
+        mainKey = MasterKey.Builder(requireContext())
+        <br></br>
+            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+        <br></br>
+            .build()
+        <br><br></br></br>
+        Once a key has been created you can then create an instance of EncryptedSharedPreferences. This is like creating a SharedPreference instance, except the key and encryption scheme are passed in. For example:
+        <br></br>
+        val sharedPrefsFile = "encryptedUserProfileSP"
+        <br></br>
+        val sharedPrefs: SharedPreferences = EncryptedSharedPreferences.create(
+        <br></br>
+            requireContext(),
+        <br></br>
+            sharedPrefsFile,
+        <br></br>
+            mainKey,
+        <br></br>
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+        <br></br>
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        <br></br>
+        )
+        <br></br>
+        with (sharedPrefs.edit()) {
+        <br></br>
+            putString("username", username)
+        <br></br>
+            putString("password", password)
+        <br></br>
+            apply()
+        <br></br>
+        }
+        <br><br></br></br>
+        Retrieving the values is very much the same as with SharedPreferences.
+        <br><br></br></br>
+        The other class that is included is EncryptedFile (https://developer.android.com/reference/androidx/security/crypto/EncryptedFile). Much like EncryptedSharedPreferences this is intended to be a drop-in replacement for usual file operations. The only change is passing in a key and encryption scheme. An example of writing to an encrypted file is below:
+        <br></br>
+        val myFile = File(requireContext().filesDir, "encryptedUserProfileFile.txt")
+        <br></br>
+        if (myFile.exists()) {
+        <br></br>
+            myFile.delete()
+        <br></br>
+        }
+        <br></br>
+        val myEncryptedFile = EncryptedFile.Builder(
+        <br></br>
+            requireContext(),
+        <br></br>
+            myFile,
+        <br></br>
+            mainKey,
+        <br></br>
+            EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
+        <br></br>
+        ).build()
+        <br><br></br></br>
+        val fileContent = "$username,$password".toByteArray(StandardCharsets.UTF_8)
+        <br></br>
+        myEncryptedFile.openFileOutput().apply {
+        <br></br>
+            write(fileContent)
+        <br></br>
+            flush()
+        <br></br>
+            close()
+        <br></br>
+        }
+        <br></br>
+    </string>
+    <string name="txt_guides_storage_secure">
+        Secure Storage Example
+    </string>
 
     <!--Settings-->
     <string name="txt_settings_title">Settings</string>
@@ -31,11 +315,12 @@
     <string name="btn_system">System</string>
     <string name="btn_light">Light</string>
     <string name="btn_dark">Dark</string>
-    <string name="btn_vulnerabilities_logging">Data Logging</string>
-    <string name="btn_vulnerabilities_storage">Data Storage</string>
-    <string name="btn_vulnerabilities_authentication">Authentication</string>
-    <string name="btn_vulnerabilities_broadcast">Broadcast</string>
-    <string name="btn_vulnerabilities_activity">Activity</string>
+    <string name="btn_logging">Data Logging</string>
+    <string name="btn_storage">Data Storage</string>
+    <string name="btn_storage_secure">Secure Storage</string>
+    <string name="btn_authentication">Authentication</string>
+    <string name="btn_broadcast">Broadcast</string>
+    <string name="btn_activity">Activity</string>
     <string name="btn_log_in">Log In</string>
     <string name="btn_store">Store</string>
     <string name="btn_retrieve">Retrieve</string>
@@ -49,6 +334,7 @@
     <string name="txt_empty">Cannot be empty</string>
     <string name="txt_pin">PIN</string>
     <string name="txt_wrong_pin">Incorrect PIN</string>
+    <string name="txt_stack_overflow">Stack Overflow top answer</string>
     <string name="snk_saved_credentials">Saved credentials!</string>
     <string name="snk_correct_pin">Correct pin!</string>
 

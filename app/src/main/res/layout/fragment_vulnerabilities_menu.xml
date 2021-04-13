@@ -7,42 +7,6 @@
     android:paddingHorizontal="16dp"
     android:paddingVertical="16dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_vulnerabilities_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/btn_vulnerabilities_activity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_vulnerabilities_broadcast" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_vulnerabilities_broadcast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/btn_vulnerabilities_broadcast"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_vulnerabilities_authentication" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_vulnerabilities_storage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/btn_vulnerabilities_storage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_vulnerabilities_logging" />
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txt_vulnerabilities_title"
         android:layout_width="wrap_content"
@@ -57,25 +21,52 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_vulnerabilities_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/btn_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_vulnerabilities_broadcast" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_vulnerabilities_broadcast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/btn_broadcast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_vulnerabilities_authentication" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_vulnerabilities_storage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/btn_storage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_vulnerabilities_logging" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_vulnerabilities_logging"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/btn_vulnerabilities_logging"
+        android:text="@string/btn_logging"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_vulnerabilities_title" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/btn_vulnerabilities_storage"
-        app:layout_constraintTop_toTopOf="@+id/btn_vulnerabilities_storage" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_vulnerabilities_authentication"
@@ -84,7 +75,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/btn_vulnerabilities_authentication"
+        android:text="@string/btn_authentication"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_vulnerabilities_storage" />

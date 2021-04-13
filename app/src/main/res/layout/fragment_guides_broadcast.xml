@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_broadcast_mitigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:autoLink="web"
+            android:text="@string/txt_guides_broadcast_mitigation"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_guides_mitigation_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_mitigation_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/txt_guides_mitigation"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_guides_broadcast_where" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_broadcast_where"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:autoLink="web"
+            android:text="@string/txt_guides_broadcast_where"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_guides_where_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_where_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/txt_guides_where"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_guides_broadcast_vulnerability" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_broadcast_vulnerability"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:autoLink="web"
+            android:text="@string/txt_guides_broadcast_vulnerability"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_guides_vulnerability_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_vulnerability_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/txt_guides_vulnerability"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_guides_broadcast_introduction" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_broadcast_introduction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:autoLink="web"
+            android:text="@string/txt_guides_broadcast_introduction"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_guides_introduction_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_introduction_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/txt_guides_introduction"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_guides_broadcast_title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_guides_broadcast_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/txt_guides_broadcast_title"
+            android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
