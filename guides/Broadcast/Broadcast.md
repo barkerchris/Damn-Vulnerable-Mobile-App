@@ -23,7 +23,7 @@ Using a tool such as [jadx](https://github.com/skylot/jadx), it is possible to d
 ## Where this can be found
 Anywhere in code where sensitive data meant for a specific target is instead sent implicitly leaving the data world-readable.
 
-## Mitigations
+## Mitigation
 If there is a known target, then always use explicit broadcasts as these stop the system from determining the correct recipient which will avoid the chance of another app intercepting the data.
 If a Implicit Broadcast is required, then always assume the data being sent is readable by everything. Determine what data is truly necessary and then encrypt any sensitive parts. You can also send broadcasts with a permission parameter which will limit receivers to those who have requested that permission.
 

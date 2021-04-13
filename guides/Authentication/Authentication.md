@@ -24,11 +24,11 @@ done
 exit 0
 ```
 
-## What does this look like
+## What this looks like
 In code this will be noticeable anywhere that PIN numbers are accepted. There will also be a lack of tests regarding incorrect login attempts.
 
 ## Where this can be found
 Authentication can occur anywhere in an app that needs to check entered details - usually for accessing hidden content or logging into an account.
 
-## Mitigations
-As mentioned at the beginning, shifting authentication to a 3rd party server with appropriate security measures will relieve the need for checks locally in the app. If authentication must occur locally then make sure that there are time-outs associated with incorrect login attempts. Furthermore, if there is a need for passwords, always enforce numeric passwords to ensure strong password strength.
+## Mitigation
+As mentioned at the beginning, shifting authentication to a 3rd party server with appropriate security measures will relieve the need for checks locally in the app. If authentication must occur locally then make sure that there are time-outs associated with incorrect login attempts. Furthermore, if there is a need for passwords, always enforce alphanumeric passwords to ensure strong password strength.
